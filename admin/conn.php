@@ -1,4 +1,4 @@
 <?php
-$con = mysqli_connect("localhost","root","","planquadrat");
+$con = mysqli_connect("localhost","root","shrinath","planquadrat");
 
 ?>
