@@ -47,26 +47,25 @@
                     <span class="dash"></span>
                 </div>
                 <form method="post" >
-                        
+                     <p id="errorpop" style="display: none;"></p>     
                     <div class="contact-body">
                         <div class="contact-head">
-                            <h4><i class=""></i>Leave us Message</h4>
+                            <h4><i class=""></i>Leave Us Message</h4>
                         </div>
                         <div class="name">                   
-                            <input type="text" class="form-control" name="fname" placeholder="Name :">
+                            <input type="text" id="fname" class="form-control" name="fname" placeholder="Name :">
                         </div>
                         <div class="email">
-                            <input type="email" class="form-control" name="email"  placeholder="Email :">
                         </div>
                             
                         <div class=" phne">
-                            <input type="text" class="form-control" name="phone"  placeholder="Phone No :">
+                            <input type="text" id="phone" class="form-control" name="phone"  placeholder="Phone No :">
                         </div>
                         <div class="msg">
-                            <textarea rows="4" placeholder="Message :" class="form-control" name="msg" ></textarea>
+                            <textarea rows="4" id="message" placeholder="Message :" class="form-control" name="msg" ></textarea>
                         </div>
                         <div class="send">
-                            <button class="send-but" type="submit" formaction="">Send</button>
+                            <button class="send-but" type="button" onclick="SubmitEnquiry()" formaction="">Send</button>
                         </div>
                     </div>    
                    
@@ -128,6 +127,95 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfO6yI7IWnSEAPrEfsrJwoMtEXVWjMozE&callback=initMap">
     </script>
+    <script type="text/javascript">
+            function SubmitEnquiry(){
+              
+             console.log("click");
+              //alert('haii');
+             //  var triptype = document.getElementsByName('triptype').value;
+             
+             // // var tripstatus = document.getElementsByName('tripstatus').value;
+               var name = document.getElementById('fname').value;
+               var phone = document.getElementById('phone').value;
+               var message = document.getElementById('message').value;
+               var email = document.getElementById('email').value;
+               
+               
+             console.log("hi hello")
+               console.log(name,phone,message,email);
+               if( name == ''){
+                 document.getElementById('errorpop').style.display="block";
+                 document.getElementById('errorpop').innerHTML = 'Please Enter Your Name';
+                 setTimeout(function() {
+                   $('#errorpop').fadeOut('fast');
+                 }, 2000);
+               } 
+               else if( phone == '')
+               { 
+                 document.getElementById('errorpop').style.display="block";
+                 document.getElementById('errorpop').innerHTML = 'Please Enter Your Phone Number ';
+                 setTimeout(function() {
+                   $('#errorpop').fadeOut('fast');
+                 }, 2000);
+               }
+               
+               else if( email == '')
+               { 
+                 document.getElementById('errorpop').style.display="block";
+                 document.getElementById('errorpop').innerHTML = 'Please Enter Your Email ';
+                 setTimeout(function() {
+                   $('#errorpop').fadeOut('fast');
+                 }, 2000);
+               }
+              
+               else if( message == '')
+               { 
+                 document.getElementById('errorpop').style.display="block";
+                 document.getElementById('errorpop').innerHTML = 'Please Enter a Message ';
+                 setTimeout(function() {
+                   $('#errorpop').fadeOut('fast');
+                 }, 2000);
+               }
+             
+                else {
+                 var sms="mail.php";
+                 
+                 var url = sms+"?name="+name+"&phone="+phone+"&email="+email+"&message="+message;
+                 console.log(url);
+                 if(window.XMLHttpRequest){
+                     var xmlhttp=new XMLHttpRequest();
+                 } else {
+                     var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); 
+                 }
+                 xmlhttp.onreadystatechange=function(){
+                     if(xmlhttp.readyState==4){
+                         var response=xmlhttp.responseText;
+                         if(response == 1){
+                            
+                       document.getElementById('errorpop').style.display="block";
+                       document.getElementById('errorpop').innerHTML = 'Message Has Been  Send Successfully';
+                       setTimeout(function() {
+                           $('#errorpop').fadeOut('fast');
+                          // window.location='index.html';                       
+                       }, 2000);
+                   }
+                   else {
+                       document.getElementById('errorpop').style.display="block";
+                       document.getElementById('errorpop').innerHTML = 'Error';
+                       setTimeout(function() {
+                           $('#errorpop').fadeOut('fast');
+                       }, 2000);
+                   }
+               }
+           }
+           xmlhttp.open("GET",url,true);
+           xmlhttp.send();
+
+       }
+   
+   }
+          </script>
+
 </body>
 
 
