@@ -60,6 +60,8 @@ if($_SESSION['admin']=="")
                  <th>Header Text</th>
                  <th>Options</th>
                  <th>project type</th>
+                 <th>Category</th>
+                 <th>Sub category</th>
                  <th>date</th>
                  <th>image</th>
                  <th>Delete</th>
@@ -103,6 +105,8 @@ $imgindex++;
                    <td><?php echo $row['bodytext']; ?></td>
                    <td><?php echo $row['contractor']; ?></td>
                    <td><?php echo  $row['projecttype']; ?></td>
+                   <td><?php echo  $row['projectcategory']; ?></td>
+                   <td><?php echo  $row['subcategory']; ?></td>
                    <td><?php echo $row['dates']; ?></td>
                    
                                

@@ -57,6 +57,8 @@ $headertext = $_POST['headertext'];
 $bodytext = $_POST['bodytext'];
 $contractor = $_POST['contractor'];
 $projecttype = $_POST['projecttype'];
+$subcategory ="".$_POST['subcategory'];
+$projectcategory ="".$_POST['category'];
 
 if(isset($_POST['relatedprojects'])){ 
   $getInput = $_POST['relatedprojects']; 
@@ -132,7 +134,7 @@ if(isset($_POST['relatedprojects'])){
 
 include('conn.php');
 //$sql = "INSERT INTO project(blogtitle, dates, headertext, bodytext) VALUES ('$blogtitle','$dates', '$headertext', '$bodytext')";
-$sql = "INSERT INTO project(blogtitle, dates,images, headertext, bodytext, contractor, projecttype, relatedprojects) VALUES ('$blogtitle','$dates','$oldfilename', '$headertext', '$bodytext', '$contractor', '$projecttype', '$selectedOption')";
+$sql = "INSERT INTO project(blogtitle, dates,images, headertext, bodytext, contractor, projecttype, relatedprojects, projectcategory, subcategory) VALUES ('$blogtitle','$dates','$oldfilename', '$headertext', '$bodytext', '$contractor', '$projecttype', '$selectedOption', '$projectcategory', '$subcategory')";
 $sq = mysqli_query($con,$sql);
 //header('location:addfaculty.php');
 if($sq){
@@ -223,8 +225,36 @@ if($sq){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+  <P style="margin-left: 3%;">Project Category&nbsp;&nbsp;
+  <select data-placeholder="Select category" onchange="fetch_select(this.value);" class="chosen-select" name="category" id="category">
+    <option value="consultaion">Consultation</option>
+    <option value="Architecture">Architecture</option>
+    <option value="Urban Planning">Urban Planning</option>
+    <option value="competitionmanagement">Competiotion Management</option>
+  </select></P></br>
+  
+         <select id="subcategory" data-placeholder="Select Sub category"  name="subcategory"  required>
+                  
+               </select> 
+             <!--    <P style="margin-left: 3%;">Project Category&nbsp;&nbsp;
+  <select data-placeholder="select subcategory" onchange="fetch_select(this.value);" class="chosen-select" name="subcategory" id="subcategory">
+  </select> -->
 
-       <p style="margin-left: 4%;">  Related Proejcts &nbsp;&nbsp;&nbsp; 
+
+   <!-- <P style="margin-left: 3%;">Project Sub Category&nbsp;&nbsp;
+  <select data-placeholder="Begin typing a name to filter..."   class="chosen-select" name="relatedprojects[]" id="relatedprojects">
+    <option value="colsultaion">Consultaion</option>
+    <option value="Architecture">Architecture</option>
+    <option value="urbanplanning">Urban Planning</option>
+    <option value="competitionmanagement">Competiotion Management</option>
+  </select></P></br> -->
+ <!-- <select name="course"  onchange="fetch_select(this.value);">
+                       <option> --Select Course--</option>  -->
+
+
+
+
+       <p style="margin-left: 3%;">  Related Proejcts &nbsp;&nbsp; 
        <select data-placeholder="Begin typing a name to filter..." multiple class="chosen-select" name="relatedprojects[]" id="relatedprojects">
                             <?php
                        while($r=mysqli_fetch_array($sqlioption))
@@ -286,5 +316,21 @@ if($sq){
       });
     });
   </script>
+    <script type="text/javascript">
+function fetch_select(val)
+{
+ $.ajax({
+ type: 'post',
+ url: 'fetch_data.php',
+ data: {
+  get_option:val
+ },
+ success: function (response) {
+  document.getElementById("subcategory").innerHTML=response; 
+ }
+ });
+}
+
+</script>
 </body>
 </html>

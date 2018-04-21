@@ -36,9 +36,14 @@
                      $imagess = $row['images'];
 
 
+                     $ind=0;
+$images11 =  explode(' ', $imagess);
+foreach ($images11 as $images1) {
+if ($ind==1) {
+  $images ="../admin/assets/img/blogimg/".$images1;
+} $ind++;
 
-$images1 =  explode(' ', $imagess)[1];
-$images ="../admin/assets/img/blogimg/".$images1;
+}
                    $i++
                           
               ?>

@@ -90,11 +90,11 @@ $ss = mysqli_query($con,$sql1);
 	} */
 if ($oldfilename) {
 	
-	$sql1="UPDATE project SET blogtitle ='".$_POST['blogtitle']."',headertext = '".$_POST['headertext']."',bodytext = '".$_POST['bodytext']."',contractor = '".$_POST['contractor']."',projecttype = '".$_POST['projecttype']."',relatedprojects= '".$selectedOption."',dates = '".$_POST['dates']."',images = '".$oldfilename."' WHERE id='".$_POST['hidid']."'";
+	$sql1="UPDATE project SET blogtitle ='".$_POST['blogtitle']."',headertext = '".$_POST['headertext']."',bodytext = '".$_POST['bodytext']."',contractor = '".$_POST['contractor']."',projecttype = '".$_POST['projecttype']."',relatedprojects= '".$selectedOption."',dates = '".$_POST['dates']."',projectcategory = '".$_POST['category']."',subcategory = '".$_POST['subcategory']."',images = '".$oldfilename."' WHERE id='".$_POST['hidid']."'";
 $ss = mysqli_query($con,$sql1);
 }
 	else{
-		$sql1="UPDATE project SET blogtitle ='".$_POST['blogtitle']."',headertext = '".$_POST['headertext']."',bodytext = '".$_POST['bodytext']."',contractor = '".$_POST['contractor']."',projecttype = '".$_POST['projecttype']."',relatedprojects= '".$selectedOption."',dates = '".$_POST['dates']."' WHERE id='".$_POST['hidid']."'";
+		$sql1="UPDATE project SET blogtitle ='".$_POST['blogtitle']."',headertext = '".$_POST['headertext']."',bodytext = '".$_POST['bodytext']."',contractor = '".$_POST['contractor']."',projecttype = '".$_POST['projecttype']."',relatedprojects= '".$selectedOption."',projectcategory = '".$_POST['category']."',subcategory = '".$_POST['subcategory']."',dates = '".$_POST['dates']."' WHERE id='".$_POST['hidid']."'";
 $ss = mysqli_query($con,$sql1);
 	}
 	
@@ -197,7 +197,21 @@ else
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 
-       <p style="margin-left: 4%;">  Related Proejcts:   <select data-placeholder="Begin typing a name to filter..." multiple class="chosen-select" name="relatedprojects[]"  id="relatedprojects">
+ <P style="margin-left: 1%;">Project Category&nbsp;&nbsp;
+  <select data-placeholder="Select category" onchange="fetch_select(this.value);" class="chosen-select" name="category" id="category">
+  	<option value="<?php echo $fetch['projectcategory']  ?>">--select Project Category--</option>
+  	<option value="Urban Planning">Urban Planning</option>
+    <option value="consultation">Consultation</option>
+    <option value="Architecture">Architecture</option>
+    
+    <option value="competitionmanagement">Competiotion Management</option>
+  </select></P></br>
+   <P style="margin-left: 3%;">Sub Category&nbsp;&nbsp;&nbsp;
+         <select id="subcategory" data-placeholder="Select Sub category"  name="subcategory"  >
+                  <option value="<?php echo $fetch['subcategory'] ?>"><?php echo $fetch['subcategory'] ?></option>
+               </select> 
+</P><br/>
+       <p style="margin-left: 2%;">  Related Proejcts:   <select data-placeholder="Begin typing a name to filter..." multiple class="chosen-select" name="relatedprojects[]"  id="relatedprojects">
                             <?php include('conn.php');
       $sqloption= "SELECT * FROM project";
       $sqlioption = mysqli_query($con,$sqloption);
@@ -271,6 +285,25 @@ else
   </script>
 <script src="js/custom.js"></script>
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.js" ></script>
   <script>tinymce.init({ selector:'.content' });</script>
+   <script type="text/javascript">
+function fetch_select(val)
+{
+
+ $.ajax({
+ type: 'post',
+ url: 'fetch_data.php',
+ data: {
+  get_option:val
+ },
+ success: function (response) {
+  document.getElementById("subcategory").innerHTML=response; 
+ }
+ });
+}
+
+</script>
 </body>
 </html>
