@@ -225,17 +225,17 @@ if($sq){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
-  <P style="margin-left: 3%;">Project Category&nbsp;&nbsp;
+  <P style="margin-left: 1%;">Project Category&nbsp;&nbsp;
   <select data-placeholder="Select category" onchange="fetch_select(this.value);" class="chosen-select" name="category" id="category">
-    <option value="consultaion">Consultation</option>
+    <option value="consultation">Consultation</option>
     <option value="Architecture">Architecture</option>
-    <option value="Urban Planning">Urban Planning</option>
+    <option value="UrbanPlanning">Urban Planning</option>
     <option value="competitionmanagement">Competiotion Management</option>
   </select></P></br>
-  
+  <p style="margin-left: 4%">Sub Category&nbsp;&nbsp;
          <select id="subcategory" data-placeholder="Select Sub category"  name="subcategory"  required>
                   
-               </select> 
+               </select> </p>
              <!--    <P style="margin-left: 3%;">Project Category&nbsp;&nbsp;
   <select data-placeholder="select subcategory" onchange="fetch_select(this.value);" class="chosen-select" name="subcategory" id="subcategory">
   </select> -->
@@ -254,7 +254,7 @@ if($sq){
 
 
 
-       <p style="margin-left: 3%;">  Related Proejcts &nbsp;&nbsp; 
+       <p style="margin-left: 1%;">  Related Proejcts &nbsp;&nbsp; 
        <select data-placeholder="Begin typing a name to filter..." multiple class="chosen-select" name="relatedprojects[]" id="relatedprojects">
                             <?php
                        while($r=mysqli_fetch_array($sqlioption))

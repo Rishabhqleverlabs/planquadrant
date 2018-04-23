@@ -64,30 +64,30 @@
             </div>
             <div class="navigation--filter hidden-xs">
                 <ul class="page-container navigation--filter-container" id="project-typology">
-                     <li class="navigation--filter-level1"><a href="">Consultation</a></li>
-                    <li class="navigation--filter-level1"><a href="">Architecture</a>
+                     <li class="navigation--filter-level1"><a href="category/2-architektur/index.php?id=consultation">Consultation</a></li>
+                    <li class="navigation--filter-level1"><a href="category/2-architektur/index.php?id=Architecture">Architecture</a>
                     <ul><br>
-                            <li><a href="">Residential</a></li>
-                            <li><a href="">Commercial</a></li>
-                            <li><a href="">Education</a></li>
-                            <li><a href="">Hotel</a></li>
-                            <li><a href="">Industria</a></li>
-                            <li><a href="">Special Constructions</a></li>
+                            <li><a href="category/2-architektur/index.php?id=Residential">Residential</a></li>
+                            <li><a href="category/2-architektur/index.php?id=Commercial">Commercial</a></li>
+                            <li><a href="category/2-architektur/index.php?id=Education">Education</a></li>
+                            <li><a href="category/2-architektur/index.php?id=Hotel">Hotel</a></li>
+                            <li><a href="category/2-architektur/index.php?id=Industrial">Industrial</a></li>
+                            <li><a href="category/2-architektur/index.php?id=SpecialConstructions">Special Constructions</a></li>
                             
                     </ul>
                 </li>
 
-                    <li class="navigation--filter-level1"><a href="">urban Planning</a>
+                    <li class="navigation--filter-level1"><a href="category/2-architektur/index.php?id=UrbanPlanning">urban Planning</a>
                     <ul><br>
-                            <li><a href="">Development Plan</a></li>
-                            <li><a href="">Framework Planning</a></li>
-                            <li><a href="">Urban Development</a></li>
-                            <li><a href="">Studies</a></li>
+                            <li><a href="category/2-architektur/index.php?id=DevelopmentPlan">Development Plan</a></li>
+                            <li><a href="category/2-architektur/index.php?id=index.php?id=index.php?id=FrameworkPlanning">Framework Planning</a></li>
+                            <li><a href="category/2-architektur/index.php?id=index.php?id=UrbanDevelopment">Urban Development</a></li>
+                            <li><a href="category/2-architektur/index.php?id=Studies">Studies</a></li>
                             
                     </ul>
                 </li>
                     
-                    <li class="navigation--filter-level1"><a href="">Competition Management</a></li><br>
+                    <li class="navigation--filter-level1"><a href="category/2-architektur/index.php?id=CompetitionManagement">Competition Management</a></li><br>
                     
                    
                       
